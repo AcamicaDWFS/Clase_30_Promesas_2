@@ -1,0 +1,12 @@
+let promise1 = new Promise((resolve, reject) => {
+		Math.floor(Math.random() * 101) >50 ? resolve("Número mayor a 50") : reject ("El número es < 50")
+		}
+	);
+	
+
+promise1.then((result) => {
+    console.log(result); 
+  }).catch((errorMessage)=>{
+	  console.info("Error de promesa: " + errorMessage);
+  });
+  
