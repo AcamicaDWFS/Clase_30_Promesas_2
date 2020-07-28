@@ -7,7 +7,7 @@ function randomNumber(numb) {
 //Función que devuelva una promise
 
 function promiseNumbers(numberP, PromiseN) {
-    let p1 = new Promise((resolve, reject) => {
+    let prom = new Promise((resolve, reject) => {
         numberP = randomNumber();
         console.log(numberP);
         if (numberP > 50) {
@@ -18,7 +18,7 @@ function promiseNumbers(numberP, PromiseN) {
             reject("Rechazada " + PromiseN);
         }
     })
-    return p1;
+    return prom;
 }
 
 let numberP1;
