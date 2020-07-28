@@ -18,12 +18,12 @@ const fooReject = [
 
 Promise.all(fooReject)
     .then(console.log)
-    .catch(console.log);
+    .catch(alert);
 
 const fooRaceResolve = [
     new Promise((resolve, reject) => setTimeout(resolve, 222, '🥝')),
     new Promise((resolve, reject) => setTimeout(resolve, 333, '🍏')),
-    new Promise((resolve, reject) => setTimeout(reject, 111, '🍍')),
+    new Promise((resolve, reject) => setTimeout(resolve, 111, '🍍')),
     new Promise((resolve, reject) => setTimeout(resolve, 444, '🍇'))
 ];
 
@@ -57,6 +57,3 @@ new Promise(function (resolve, reject) {
 }).then(function (result) {
     console.info(result); // 4
 });
-
-
-

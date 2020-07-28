@@ -1,41 +1,40 @@
-let p1 = new Promise((resolve, reject) => {
-    numberP1 = Math.floor(Math.random() * 100) + 1;
-    console.log(numberP1);
-    if (numberP1 > 50) {
-        console.log("P1: El número es mayor a 50: " + numberP1);
-        resolve("Éxito promesa1");
-    } else {
-        console.log("P1: El número es menor a 50: " + numberP1);
-        reject("Rechazada promesa1");
-    }
-} );
+//Función para obtener un número aleatorio
+function randomNumber(numb) {
+    numb = Math.floor(Math.random() * 100) + 1;
+    return numb;
+}
 
-let p2 = new Promise((resolve, reject) => {
-    numberP2 = Math.floor(Math.random() * 100) + 1;
-    console.log(numberP2);
-    if (numberP2 > 50) {
-        console.log("P2: El número es mayor a 50: " + numberP2);
-        resolve("Éxito promesa2");
-    } else {
-        console.log("P2: El número es menor a 50: " + numberP2);
-        reject("Rechazada promesa2");
-    }
-} );
+//Función que devuelva una promise
 
-let p3 = new Promise((resolve, reject) => {
-    numberP3 = Math.floor(Math.random() * 100) + 1;
-    console.log(numberP3);
-    if (numberP3 > 50) {
-        console.log("P3:El número es mayor a 50: " + numberP3);
-        resolve("Éxito promesa3");
-    } else {
-        console.log("P3: El número es menor a 50: " + numberP3);
-        reject("Rechazada promesa3");
-    }
-} );
+function promiseNumbers(numberP, PromiseN) {
+    let p1 = new Promise((resolve, reject) => {
+        numberP = randomNumber();
+        console.log(numberP);
+        if (numberP > 50) {
+            console.log(PromiseN + "\nEl número es MAYOR a 50: " + numberP);
+            resolve("Éxitosa " + PromiseN);
+        } else {
+            console.log(PromiseN + "\nEl número es MENOR a 50: " + numberP);
+            reject("Rechazada " + PromiseN);
+        }
+    })
+    return p1;
+}
 
-Promise.all([p1, p2, p3]).then((resp) => {
-    alert(resp + "\nPromesas aceptadas: Las tres promesas fueron éxitosas, superaron el número 50");
-}, (err) => {
-    alert(err + "\nPromesas rechazadas: al menos 1 promesa no superó el número 50");
+let numberP1;
+let Promesa1 = "Promesa 1";
+let p1 = promiseNumbers(numberP1, Promesa1);
+
+let numberP2;
+let Promesa2 = "Promesa 2";
+let p2 = promiseNumbers(numberP2, Promesa2);
+
+let numberP3;
+let Promesa3 = "Promesa 3";
+let p3 = promiseNumbers(numberP3, Promesa3);
+
+Promise.all([p1, p2, p3]).then((resolveFunction) => {
+    alert(resolveFunction + "\nPromesas aceptadas: Las tres promesas fueron éxitosas, superaron el número 50");
+}).catch((rejectFunction) => {
+    alert(rejectFunction + "\nPromesas rechazadas: al menos 1 promesa no superó el número 50");
 });
