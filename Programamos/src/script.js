@@ -6,11 +6,13 @@
 let pokeCtn = document.getElementById("pokeCtn");
 console.info(pokeCtn);
 
+//Fetch información de 3 pokémones con la pokeapi endpoint "https://pokeapi.co/api/v2/pokemon/:id"
 let fetchPoke1 = fetch("https://pokeapi.co/api/v2/pokemon/70").then(response => response.json());
 let fetchPoke2 = fetch("https://pokeapi.co/api/v2/pokemon/452").then(response => response.json());
 let fetchPoke3 = fetch("https://pokeapi.co/api/v2/pokemon/371").then(response => response.json());
 let pokemones = [fetchPoke1, fetchPoke2, fetchPoke3];
 
+//Hacer un promise.all para esperar que se hagan todos los fetchs
 Promise.all(pokemones).then(data => {
     // Sort personalizado con callback mostrado en clase 28
     data.sort((a, b) => {
