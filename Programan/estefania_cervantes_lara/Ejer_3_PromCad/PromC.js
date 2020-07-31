@@ -1,8 +1,3 @@
-async function loadJson (url) {
-    await fetch (url)
-    .then
-}
-
 let pokeCtn = document.getElementById("pokeCtn");
 console.info(pokeCtn);
 
